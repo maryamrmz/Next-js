@@ -44,7 +44,7 @@ const FilteredEvents: VFC = () => {
   if (!filteredEvents || filteredEvents.length === 0) {
     return (
       <>
-        <p>No events found for the chosen filter!</p>;
+        <p>No events found for the chosen filter!</p>
         <Button link="/events">Show All Events</Button>
       </>
     );
