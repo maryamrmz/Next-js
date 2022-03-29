@@ -1,5 +1,5 @@
-import { FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
 import { VFC } from 'react';
+import { FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
 
 interface EventLogisticsProps {
   date: string;

@@ -1,9 +1,10 @@
+import { useRouter } from 'next/router';
+import { VFC } from 'react';
+
+import { getFilteredEvents } from 'dummy-data';
 import EventList from 'components/events/event-list';
 import ResultsTitle from 'components/events/results-title';
 import Button from 'components/ui/button';
-import { getFilteredEvents } from 'dummy-data';
-import { useRouter } from 'next/router';
-import { VFC } from 'react';
 
 const FilteredEvents: VFC = () => {
   const router = useRouter();
