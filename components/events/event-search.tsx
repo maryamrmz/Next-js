@@ -28,16 +28,28 @@ const EventSearch: VFC<EventSearchProps> = ({ onSearch }) => {
         onSubmit={submitHandler}
         className="mt-4 flex w-1/2 items-center justify-between rounded-md border-2 border-slate-400 p-2"
       >
-        <div>
+        <div className="flex items-center">
           <label htmlFor="year">Year</label>
-          <select name="year" id="year" ref={yearInputRef}>
+          <select
+            name="year"
+            id="year"
+            ref={yearInputRef}
+            className="m-0 ml-2 w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+            aria-label="Default select"
+          >
             <option value="2021">2021</option>
             <option value="2022">2022</option>
           </select>
         </div>
-        <div>
+        <div className="flex items-center">
           <label htmlFor="month">Month</label>
-          <select name="month" id="month" ref={monthInputRef}>
+          <select
+            name="month"
+            id="month"
+            ref={monthInputRef}
+            className="m-0 ml-2 w-full rounded border border-solid border-gray-300 bg-white bg-clip-padding bg-no-repeat px-3 py-1.5 text-base font-normal text-gray-700 transition ease-in-out focus:border-blue-600 focus:bg-white focus:text-gray-700 focus:outline-none"
+            aria-label="Default select"
+          >
             <option value="1">January</option>
             <option value="2">February</option>
             <option value="3">March</option>
