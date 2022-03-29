@@ -1,9 +1,22 @@
+import { VFC } from 'react';
+
 import EventItem from './event-item';
-import { Event } from '../shared/EventType';
 
-function EventList(props: { items: Event[] }) {
-  const { items } = props;
+type Event = {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  location: string;
+  isFeatured: boolean;
+  date: string;
+};
 
+interface EventListProps {
+  items: Event[];
+}
+
+const EventList: VFC<EventListProps> = ({ items }) => {
   return (
     <ul className="py-12">
       {items.map((event: Event) => (
@@ -18,6 +31,6 @@ function EventList(props: { items: Event[] }) {
       ))}
     </ul>
   );
-}
+};
 
 export default EventList;

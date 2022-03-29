@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
+import { VFC } from 'react';
 
-import { getEventById } from '../../dummy-data';
-import EventSummary from '../../components/event-detail/event-summary';
-import EventLogistics from '../../components/event-detail/event-logistics';
-import EventContent from '../../components/event-detail/event-content';
+import { getEventById } from 'dummy-data';
+import EventSummary from 'components/event-detail/event-summary';
+import EventLogistics from 'components/event-detail/event-logistics';
+import EventContent from 'components/event-detail/event-content';
 
-function EventDetailPage() {
+const EventDetailPage: VFC = () => {
   const router = useRouter();
 
   const eventId = router.query.eventId;
@@ -29,6 +30,6 @@ function EventDetailPage() {
       </EventContent>
     </div>
   );
-}
+};
 
 export default EventDetailPage;
