@@ -23,8 +23,11 @@ const EventSearch: VFC<EventSearchProps> = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <div>
+    <div className="flex items-center justify-center">
+      <form
+        onSubmit={submitHandler}
+        className="mt-4 flex w-1/2 items-center justify-between rounded-md border-2 border-slate-400 p-2"
+      >
         <div>
           <label htmlFor="year">Year</label>
           <select name="year" id="year" ref={yearInputRef}>
@@ -49,9 +52,9 @@ const EventSearch: VFC<EventSearchProps> = ({ onSearch }) => {
             <option value="12">December</option>
           </select>
         </div>
-      </div>
-      <Button>Find Events</Button>
-    </form>
+        <Button>Find Events</Button>
+      </form>
+    </div>
   );
 };
 
