@@ -1,11 +1,23 @@
+import { VFC } from 'react';
 import { FaArrowRight, FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
 
-import { Event } from '../shared/EventType';
 import Button from '../ui/button';
 
-function EventItem(props: Omit<Event, 'description' | 'isFeatured'>) {
-  const { title, image, date, location, id } = props;
+interface EventItemProps {
+  title: string;
+  image: string;
+  date: string;
+  location: string;
+  id: string;
+}
 
+const EventItem: VFC<EventItemProps> = ({
+  date,
+  id,
+  image,
+  location,
+  title,
+}) => {
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',
     month: 'long',
@@ -38,5 +50,6 @@ function EventItem(props: Omit<Event, 'description' | 'isFeatured'>) {
       </div>
     </li>
   );
-}
+};
+
 export default EventItem;
