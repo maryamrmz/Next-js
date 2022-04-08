@@ -1,5 +1,6 @@
 import { VFC } from 'react';
 import { FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 interface EventLogisticsProps {
   date: string;
@@ -23,11 +24,15 @@ const EventLogistics: VFC<EventLogisticsProps> = ({
 
   return (
     <section className="absolute top-48 flex w-1/2 items-center justify-center rounded-md bg-slate-800 p-10 text-white">
-      <img
-        src={`/${image}`}
-        alt={imageAlt}
-        className="mr-10 h-64 w-64 items-center rounded-full border-4 border-white object-cover"
-      />
+      <div className="mr-10 flex items-center justify-center rounded-full border-4 border-white">
+        <Image
+          src={`/${image}`}
+          alt={imageAlt}
+          width={300}
+          height={300}
+          className="rounded-full object-cover"
+        />
+      </div>
       <div>
         <div className="my-5">
           <div className="mb-2">

@@ -1,5 +1,6 @@
 import { VFC } from 'react';
 import { FaArrowRight, FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
+import Image from 'next/image';
 
 import Button from '../ui/button';
 
@@ -28,7 +29,13 @@ const EventItem: VFC<EventItemProps> = ({
 
   return (
     <li className="mb-6 flex justify-center last:mb-auto">
-      <img src={`/${image}`} alt={title} className="w-68 h-48 object-cover" />
+      <Image
+        src={`/${image}`}
+        alt={title}
+        className="w-68 h-48 object-cover"
+        width={200}
+        height={200}
+      />
       <div className="relative min-w-[350px] bg-slate-100 p-5">
         <div>
           <h2 className="text-xl font-medium">{title}</h2>
