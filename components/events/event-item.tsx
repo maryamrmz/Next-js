@@ -32,7 +32,7 @@ const EventItem: VFC<EventItemProps> = ({
       <Image
         src={`/${image}`}
         alt={title}
-        className="w-68 h-48 object-cover"
+        className="object-cover"
         width={200}
         height={200}
       />
