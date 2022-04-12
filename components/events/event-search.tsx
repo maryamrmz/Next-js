@@ -26,7 +26,7 @@ const EventSearch: VFC<EventSearchProps> = ({ onSearch }) => {
     <div className="flex items-center justify-center">
       <form
         onSubmit={submitHandler}
-        className="mt-4 flex w-1/2 items-center justify-between rounded-md border-2 border-slate-400 p-2"
+        className="mt-4 flex w-1/2 items-center justify-between rounded-md border border-slate-400 p-2"
       >
         <div className="flex items-center">
           <label htmlFor="year">Year</label>
