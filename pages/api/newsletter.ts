@@ -2,25 +2,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { MongoClient } from 'mongodb';
 
+import { connectDatabase, insertDocument } from 'helpers/db-util';
+
 type Data = {
   message: string;
-};
-
-const connectDatabase = async () => {
-  const client = await MongoClient.connect(
-    'mongodb+srv://maryam:5XpACr50fst8AjPU@cluster0.odwod.mongodb.net/newsletter?retryWrites=true&w=majority'
-  );
-
-  return client;
-};
-
-const insertDocument = async (
-  client: MongoClient,
-  document: { email: string }
-) => {
-  const db = client.db();
-
-  await db.collection('emails').insertOne(document);
 };
 
 const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
@@ -42,7 +27,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
     }
 
     try {
-      await insertDocument(client, { email: userEmail });
+      await insertDocument(client, 'newsletter', { email: userEmail });
       client.close();
     } catch (error) {
       res.status(500).json({ message: 'Inserting data failed!' });
