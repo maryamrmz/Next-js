@@ -1,7 +1,8 @@
 import { VFC, useRef, useState, FormEvent } from 'react';
+import { commentType } from '../shared/commentType';
 
 interface NewCommentProps {
-  onAddComment: any;
+  onAddComment: (commentData: commentType) => void;
 }
 
 const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
@@ -39,10 +40,10 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
   };
 
   return (
-    <form className="bg-emerald-500 p-4 text-white">
+    <form className="bg-emerald-500 p-4" onSubmit={sendCommentHandler}>
       <div className="flex justify-between align-middle">
         <div>
-          <label htmlFor="email" className="mb-2 block">
+          <label htmlFor="email" className="mb-2 block text-white">
             Your email
           </label>
           <input
@@ -53,7 +54,7 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
           />
         </div>
         <div>
-          <label htmlFor="name" className="mb-2 block">
+          <label htmlFor="name" className="mb-2 block text-white">
             Your name
           </label>
           <input
@@ -65,7 +66,7 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
         </div>
       </div>
       <div>
-        <label htmlFor="comment" className="my-2 block">
+        <label htmlFor="comment" className="my-2 block text-white">
           Your comment
         </label>
         <textarea

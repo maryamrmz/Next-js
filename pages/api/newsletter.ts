@@ -1,0 +1,56 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { MongoClient } from 'mongodb';
+
+type Data = {
+  message: string;
+};
+
+const connectDatabase = async () => {
+  const client = await MongoClient.connect(
+    'mongodb+srv://maryam:5XpACr50fst8AjPU@cluster0.odwod.mongodb.net/newsletter?retryWrites=true&w=majority'
+  );
+
+  return client;
+};
+
+const insertDocument = async (
+  client: MongoClient,
+  document: { email: string }
+) => {
+  const db = client.db();
+
+  await db.collection('emails').insertOne(document);
+};
+
+const handler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+  if (req.method === 'POST') {
+    const userEmail = req.body.email;
+
+    if (!userEmail || !userEmail.includes('@')) {
+      res.status(422).json({ message: 'Invalid email address.' });
+      return;
+    }
+
+    let client: MongoClient;
+
+    try {
+      client = await connectDatabase();
+    } catch (error) {
+      res.status(500).json({ message: 'Connecting to the database failed!' });
+      return;
+    }
+
+    try {
+      await insertDocument(client, { email: userEmail });
+      client.close();
+    } catch (error) {
+      res.status(500).json({ message: 'Inserting data failed!' });
+      return;
+    }
+
+    res.status(201).json({ message: 'Signed up!' });
+  }
+};
+
+export default handler;

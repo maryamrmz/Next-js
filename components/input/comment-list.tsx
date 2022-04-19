@@ -1,20 +1,22 @@
-import React from 'react';
+import { VFC } from 'react';
 
-const CommentList = () => {
+import { commentType } from '../shared/commentType';
+
+interface CommentListProps {
+  items: commentType[];
+}
+
+const CommentList: VFC<CommentListProps> = ({ items }) => {
   return (
     <ul className="my-4">
-      <li className="flex justify-between border-b py-2">
-        <p>My comment is amazing!</p>
-        <div className="mt-4">
-          By <address className="inline">Maryam</address>
-        </div>
-      </li>
-      <li className="flex justify-between border-b py-2">
-        <p>My comment is amazing!</p>
-        <div className="mt-4">
-          By <address className="inline">Maryam</address>
-        </div>
-      </li>
+      {items.map((item) => (
+        <li key={item._id} className="flex justify-between border-b py-2">
+          <p>{item.text}</p>
+          <div className="mt-4">
+            By <address className="inline">{item.name}</address>
+          </div>
+        </li>
+      ))}
     </ul>
   );
 };
