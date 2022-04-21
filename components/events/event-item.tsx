@@ -28,7 +28,7 @@ const EventItem: VFC<EventItemProps> = ({
   const exploreLink = `events/${id}`;
 
   return (
-    <li className="mb-6 flex justify-center last:mb-auto">
+    <li className="mb-6 flex flex-col justify-center gap-4 last:mb-auto md:flex-row">
       <Image
         src={`/${image}`}
         alt={title}
@@ -36,9 +36,9 @@ const EventItem: VFC<EventItemProps> = ({
         width={200}
         height={200}
       />
-      <div className="relative min-w-[350px] bg-slate-100 p-5">
+      <div className="min-w-[350px] bg-slate-100 p-5">
         <div>
-          <h2 className="text-xl font-medium">{title}</h2>
+          <h2 className="text-xs font-medium md:text-xl">{title}</h2>
         </div>
         <div className="my-2 flex items-center text-zinc-600">
           <FaCalendarMinus />
@@ -48,7 +48,7 @@ const EventItem: VFC<EventItemProps> = ({
           <FaMapMarkerAlt />
           <address className="ml-2">{formattedAddress}</address>
         </div>
-        <div className="absolute bottom-5 right-5">
+        <div>
           <Button link={exploreLink}>
             <span className="mr-2 text-sm">Explore Event</span>
             <FaArrowRight />

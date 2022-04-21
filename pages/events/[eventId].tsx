@@ -19,7 +19,7 @@ const EventDetailPage: VFC = () => {
 
   return (
     <>
-      <div className="relative flex h-[calc(100vh_-_56px)] flex-col items-center justify-between">
+      <div className="flex flex-col items-center justify-between">
         <EventSummary title={event.title} />
         <EventLogistics
           date={event.date}

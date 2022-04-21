@@ -51,8 +51,8 @@ const NewsletterRegistration: VFC = () => {
   };
 
   return (
-    <section className="m-auto">
-      <h2 className="my-4 text-center font-bold">Sign up to stay updated!</h2>
+    <section className="m-12 mx-auto w-11/12 max-w-xs">
+      <h2 className="text-center font-bold">Sign up to stay updated!</h2>
       <form onSubmit={registrationHandler}>
         <div className="flex justify-center ">
           <input

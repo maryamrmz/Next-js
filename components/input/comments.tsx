@@ -72,7 +72,7 @@ const Comments: VFC<CommentsProps> = ({ eventId }) => {
   };
 
   return (
-    <section className="m-auto my-4 w-2/5">
+    <section className="m-12 my-4 mx-auto w-11/12 max-w-2xl">
       <button
         className="m-auto mb-4 flex rounded-sm border border-emerald-500 p-2 text-emerald-500"
         onClick={toggleCommentsHandler}
