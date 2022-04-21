@@ -2,6 +2,8 @@ import { VFC } from 'react';
 import { FaCalendarMinus, FaMapMarkerAlt } from 'react-icons/fa';
 import Image from 'next/image';
 
+import LogisticsItem from './components/logistics-item';
+
 interface EventLogisticsProps {
   date: string;
   address: string;
@@ -23,7 +25,7 @@ const EventLogistics: VFC<EventLogisticsProps> = ({
   const formattedAddress = address.replace(', ', '\n');
 
   return (
-    <section className="absolute top-48 flex w-1/2 items-center justify-center rounded-md bg-slate-800 p-10 text-white">
+    <section className="-m-12 mx-auto flex w-4/5 max-w-[50rem] flex-col items-center justify-center gap-4 rounded-md bg-slate-800 p-10 text-white md:flex-row">
       <div className="mr-10 flex items-center justify-center rounded-full border-4 border-white">
         <Image
           src={`/${image}`}
@@ -33,20 +35,14 @@ const EventLogistics: VFC<EventLogisticsProps> = ({
           className="rounded-full object-cover"
         />
       </div>
-      <div>
-        <div className="my-5">
-          <div className="mb-2">
-            <FaCalendarMinus />
-          </div>
+      <ul className="flex flex-[3] flex-col items-center justify-center gap-8 md:items-start">
+        <LogisticsItem icon={FaCalendarMinus}>
           <time>{humanReadableDate}</time>
-        </div>
-        <div className="my-5">
-          <div className="mb-2">
-            <FaMapMarkerAlt />
-          </div>
+        </LogisticsItem>
+        <LogisticsItem icon={FaMapMarkerAlt}>
           <address>{formattedAddress}</address>
-        </div>
-      </div>
+        </LogisticsItem>
+      </ul>
     </section>
   );
 };
