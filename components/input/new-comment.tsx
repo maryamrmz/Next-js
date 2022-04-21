@@ -41,8 +41,8 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
 
   return (
     <form className="bg-emerald-500 p-4" onSubmit={sendCommentHandler}>
-      <div className="flex justify-between align-middle">
-        <div>
+      <div className="flex w-full flex-wrap justify-between gap-4 align-middle">
+        <div className="min-w-[10rem] flex-1">
           <label htmlFor="email" className="mb-2 block text-white">
             Your email
           </label>
@@ -50,10 +50,10 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
             type="email"
             id="email"
             ref={emailInputRef}
-            className="rounded-sm bg-emerald-50 p-1"
+            className="w-full rounded-sm bg-emerald-50 p-1"
           />
         </div>
-        <div>
+        <div className="min-w-[10rem] flex-1">
           <label htmlFor="name" className="mb-2 block text-white">
             Your name
           </label>
@@ -61,7 +61,7 @@ const NewComment: VFC<NewCommentProps> = ({ onAddComment }) => {
             type="text"
             id="name"
             ref={nameInputRef}
-            className="rounded-sm bg-emerald-50  p-1 "
+            className="w-full rounded-sm bg-emerald-50 p-1"
           />
         </div>
       </div>
