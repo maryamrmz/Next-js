@@ -62,8 +62,12 @@ const NewsletterRegistration: VFC = () => {
             aria-label="Your email"
             className="px-4"
             ref={emailInputRef}
+            data-testid="email"
           />
-          <button className="flex items-center justify-between rounded-md bg-emerald-500 p-2 text-white">
+          <button
+            className="flex items-center justify-between rounded-md bg-emerald-500 p-2 text-white"
+            data-testid="register"
+          >
             Register
           </button>
         </div>
